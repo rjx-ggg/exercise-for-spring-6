@@ -10,6 +10,10 @@ package com.ssll.spring6;
  */
 public class User {
 
+    public User () {
+        System.out.println("User无参构造方法执行...");
+    }
+
     public void add() {
         System.out.println("add...");
     }

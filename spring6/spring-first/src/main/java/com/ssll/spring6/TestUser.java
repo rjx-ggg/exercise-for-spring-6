@@ -1,8 +1,11 @@
 package com.ssll.spring6;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * ClassName: TestUser
@@ -23,5 +26,20 @@ public class TestUser {
         System.out.println(user);
         //3.调用方法
         user.add();
+    }
+
+    /**
+     * 反射创建对象
+     */
+    @Test
+    public void reflection2() throws Exception {
+
+        Class<?> clazz = Class.forName("com.ssll.spring6.User");
+//        Class<?> clazz = User.class;
+        User user = (User) clazz.getDeclaredConstructor().newInstance();
+        user.add();
+
+        // Bean存放的位置：DefaultListableBeanFactory类 的 beanDefinitionMap 字段
+
     }
 }
