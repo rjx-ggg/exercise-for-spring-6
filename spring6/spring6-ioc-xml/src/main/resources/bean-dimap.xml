@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="teacher1" class="com.ssll.iocxml.dimap.Teacher">
+        <property name="tname" value="栗子云老師1"></property>
+        <property name="tid" value="llid1"></property>
+    </bean>
+
+    <bean id="teacher2" class="com.ssll.iocxml.dimap.Teacher">
+        <property name="tname" value="栗子云老師2"></property>
+        <property name="tid" value="llid2"></property>
+    </bean>
+
+    <bean id="student" class="com.ssll.iocxml.dimap.Student">
+        <property name="sid" value="llsid"></property>
+        <property name="sname" value="ll名称"></property>
+        <property name="teacherMap">
+            <map>
+                    <entry key="语文" value-ref="teacher1"></entry>
+                    <entry key="数学" value-ref="teacher2"></entry>
+            </map>
+        </property>
+
+    </bean>
+
+
+
+
+
+
+
+
+
+
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 创建对象，并通过set设置Bean的属性 ：Bean属性必须有set方法 -->
+    <bean id="book" class="com.ssll.iocxml.di.Book">
+        <property name="name" value="张三"></property>
+        <property name="author" value="18"></property>
+        <property name="price"> <null/></property>
+    </bean>
+
+
+    <!-- 创建对象，并通过构造器设置Bean的属性 ：Bean必须有对应构造方法 -->
+    <bean id="book1" class="com.ssll.iocxml.di.Book">
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="author" value="李四"></constructor-arg>
+        <constructor-arg name="price"><value><![CDATA[a < b]]></value></constructor-arg>
+
+    </bean>
+
+
+
+
+</beans>

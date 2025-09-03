@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 引用外部bean -->
+    <bean id="dept" class="com.ssll.iocxml.ditest.Dept">
+        <property name="dname" value="栗子云部门"></property>
+    </bean>
+
+    <bean id="emp" class="com.ssll.iocxml.ditest.Emp">
+        <property name="ename" value="栗子云"></property>
+        <property name="age" value="9个月"></property>
+        <property name="dept" ref="dept"></property>
+        <property name="loves">
+            <array>
+                    <value>篮球</value>
+                    <value>足球</value>
+                    <value>乒乓球</value>
+            </array>
+        </property>
+
+    </bean>
+
+
+
+
+
+
+
+
+
+
+</beans>
