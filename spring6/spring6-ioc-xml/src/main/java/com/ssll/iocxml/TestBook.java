@@ -92,4 +92,13 @@ public class TestBook {
     }
 
 
+    @Test
+    public void testbeanp1(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-dieref.xml");
+        // 名称获取Bean
+        Student student = (Student) context.getBean("studentp");
+        System.out.println(student);
+    }
+
+
 }
