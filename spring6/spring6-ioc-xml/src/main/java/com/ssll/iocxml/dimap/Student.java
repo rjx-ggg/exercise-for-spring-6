@@ -17,6 +17,12 @@ public class Student {
 
     private Map<String, Teacher> teacherMap;
 
+    public void setLessonList(List<Lesson> lessonList) {
+        this.lessonList = lessonList;
+    }
+
+    private List<Lesson> lessonList;
+
     public Map<String, Teacher> getTeacherMap() {
         return teacherMap;
     }
@@ -26,7 +32,7 @@ public class Student {
     }
 
     public void run() {
-        System.out.println("学生姓名是：" + sname + "，学生编号是：" + sid);
+        System.out.println("学生姓名是：" + sname + "，学生编号是：" + sid + "，学生要学习：" + lessonList);
     }
 
     public String getSname() {
