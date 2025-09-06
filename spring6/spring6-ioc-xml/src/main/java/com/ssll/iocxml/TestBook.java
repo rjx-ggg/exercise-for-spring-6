@@ -5,9 +5,12 @@ import com.ssll.iocxml.di.Book;
 import com.ssll.iocxml.dimap.Student;
 import com.ssll.iocxml.ditest.Dept;
 import com.ssll.iocxml.ditest.Emp;
+import com.ssll.iocxml.scope.Orders;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.sql.DataSource;
 
 /**
  * ClassName: TestUser
@@ -98,6 +101,32 @@ public class TestBook {
         // 名称获取Bean
         Student student = (Student) context.getBean("studentp");
         System.out.println(student);
+    }
+
+    @Test
+    public void testbeanJdbc1(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-dijdbc.xml");
+        // 名称获取Bean
+        DataSource jdbc = (DataSource) context.getBean("jdbc");
+        System.out.println(jdbc);
+    }
+
+    @Test
+    public void testbeanScope1(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-discope.xml");
+        // 名称获取Bean
+        Orders orders = (Orders) context.getBean("orders");
+        Orders orders1 = (Orders) context.getBean("orders");
+        System.out.println(orders == orders1); // true
+    }
+
+    @Test
+    public void testbeanScope2(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-discope.xml");
+        // 名称获取Bean
+        Orders orders = (Orders) context.getBean("orders1");
+        Orders orders1 = (Orders) context.getBean("orders1");
+        System.out.println(orders == orders1); // false
     }
 
 
