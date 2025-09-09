@@ -5,6 +5,7 @@ import com.ssll.iocxml.di.Book;
 import com.ssll.iocxml.dimap.Student;
 import com.ssll.iocxml.ditest.Dept;
 import com.ssll.iocxml.ditest.Emp;
+import com.ssll.iocxml.life.User;
 import com.ssll.iocxml.scope.Orders;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
