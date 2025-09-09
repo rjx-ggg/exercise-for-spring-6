@@ -11,6 +11,8 @@
         <property name="name" value="栗子云老師"></property>
     </bean>
 
+    <bean id="myBeanProcess" class="com.ssll.iocxml.life.MyBeanProcess"></bean>
+
 
 
 </beans>
