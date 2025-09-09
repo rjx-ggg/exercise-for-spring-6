@@ -1,5 +1,6 @@
 package com.ssll.iocxml;
 
+import com.ssll.iocxml.factorybean.UserBean;
 import com.ssll.iocxml.life.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +23,13 @@ public class LifeTest {
         User user = (User) context.getBean("user");
         System.out.println(user.getName());
         context.close();
+    }
+
+    @Test
+    public void testFactoryBean(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-factoryBean.xml");
+        // 名称获取Bean
+        UserBean user = (UserBean) context.getBean("user");
     }
 
 }

@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Version 1.0
  * @Create 2025/9/3 7:12
  */
-public class TestUser {
+public class TestUserBean {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
         // 名称获取Bean
