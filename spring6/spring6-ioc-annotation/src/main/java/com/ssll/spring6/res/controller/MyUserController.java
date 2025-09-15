@@ -5,7 +5,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 
 @Controller("myUserController")
-public class UserController {
+public class MyUserController {
 
     @Resource(name = "myUserService")
     private UserService userService;
