@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--开启组件扫描-->
+    <context:component-scan base-package="com.ssll.spring6"/>
+
+    <context:component-scan base-package="com.ssll.spring6">
+        <!-- context:exclude-filter标签：指定排除规则 -->
+        <!--
+             type：设置排除或包含的依据
+            type="annotation"，根据注解排除，expression中设置要排除的注解的全类名
+            type="assignable"，根据类型排除，expression中设置要排除的类型的全类名
+        -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <!--<context:exclude-filter type="assignable" expression="com.atguigu.spring6.controller.UserController"/>-->
+    </context:component-scan>
+
+<!--
+
+                ┌─────────────────────────────┐
+                │       Root ApplicationContext│
+                │  （Spring 容器，父容器）       │
+                │─────────────────────────────│
+                │  @Service（业务层Bean）       │
+                │  @Repository（持久层Bean）    │
+                │  @Component（工具类Bean）     │
+                └───────────────▲─────────────┘
+                                │ 继承
+                                │
+                ┌───────────────┴─────────────┐
+                │    WebApplicationContext    │
+                │  （SpringMVC 容器，子容器）  │
+                │─────────────────────────────│
+                │  @Controller（控制层Bean）    │
+                └─────────────────────────────┘
+
+
+说明:
+Root ApplicationContext（父容器）
+    由 applicationContext.xml 或 Spring 配置类 初始化。
+    管理 Service 层、DAO 层、工具类 等 Bean。
+    一般在 ContextLoaderListener 中加载。
+WebApplicationContext（子容器）
+    由 spring-mvc.xml 或 DispatcherServlet 的配置初始化。
+    专门管理 Controller 层 Bean。
+    只需要扫描 @Controller 注解。
+父子关系
+    子容器（SpringMVC 容器）可以访问父容器的 Bean（例如 @Service），
+    但父容器 不能 访问子容器的 Bean（即 @Controller）。
+    这样就避免了 Controller 和 Service 的 Bean 混淆，职责更清晰。
+-->
+
+    <context:component-scan base-package="com.ssll" use-default-filters="false">
+        <!-- context:include-filter标签：指定在原有扫描规则的基础上追加的规则 -->
+        <!-- use-default-filters属性：取值false表示关闭默认扫描规则 -->
+        <!-- 此时必须设置use-default-filters="false"，因为默认规则即扫描指定包下所有类 -->
+        <!--
+             type：设置排除或包含的依据
+            type="annotation"，根据注解排除，expression中设置要排除的注解的全类名
+            type="assignable"，根据类型排除，expression中设置要排除的类型的全类名
+        -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <!--<context:include-filter type="assignable" expression="com.atguigu.spring6.controller.UserController"/>-->
+    </context:component-scan>
+
+
+
+</beans>
