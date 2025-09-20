@@ -13,6 +13,8 @@ public class TestCal {
     public static void main(String[] args) {
         ProxyFactory factory = new ProxyFactory(new CalculatorLogImpl());
         Calculator proxy = (Calculator) factory.getProxy();
-        proxy.div(1,3);
+//        proxy.div(1,3);
+        proxy.add(1,3);
+
     }
 }
